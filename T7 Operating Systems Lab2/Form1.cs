@@ -29,7 +29,10 @@ namespace T7_Operating_Systems_Lab2
         bool button_pressed = false;
         bool go = false;
 
-
+        const int time_delay = 50;
+        const string text_insert = "Insert your coin";
+        const string text_select_value = "Select value of coins you want";
+        const string text_wait = "Please wait for a little";
 
         public Form1()
         {
@@ -43,6 +46,14 @@ namespace T7_Operating_Systems_Lab2
             count[25] = 10;
             count[50] = 10;
             count[100] = 10;
+
+            l1.Text = String.Format("  1-cent - {0}", count[1]);
+            l2.Text = String.Format("  2-cent - {0}", count[2]);
+            l5.Text = String.Format("  5-cent - {0}", count[5]);
+            l10.Text = String.Format(" 10-cent - {0}", count[10]);
+            l25.Text = String.Format(" 25-cent - {0}", count[25]);
+            l50.Text = String.Format(" 50-cent - {0}", count[50]);
+            l100.Text = String.Format("100-cent - {0}", count[100]);
 
 
             Thread TA = new Thread(() => thread_A(this), 1000);
@@ -74,33 +85,70 @@ namespace T7_Operating_Systems_Lab2
                 // Critical section
                 if (have_new_coin)
                 {
-                    if (inputed_coin < wanted_coins * count[wanted_coins] && wanted_coins <= inputed_coin)
+                    string text;
+                    // Trying to exchange coins
+                    if (inputed_coin <= wanted_coins * count[wanted_coins] && wanted_coins <= inputed_coin)
                     {
                         result = inputed_coin / wanted_coins;
                         count[wanted_coins] -= result;
                         count[inputed_coin]++;
+
+                        text = String.Format("{0} {1}-cent coin(s)", result, wanted_coins);
                     }
                     else
+                    {
                         result = 0;
+                        text = "nothing";
+                    }
 
+                    // Updating text fields
                     if (tbOutput.InvokeRequired)
                     {
-                        Invoke((MethodInvoker)(() => tbOutput.Text = Convert.ToString(result)));
+                        Invoke((MethodInvoker)(() => tbOutput.Text = text));
                     }
                     else
                     {
-                        tbOutput.Text = Convert.ToString(result);
+                        tbOutput.Text = text;
                     }
-                    //tbOutput.Text = Convert.ToString(result);
+
+                    if (l1.InvokeRequired || l2.InvokeRequired || l5.InvokeRequired || l10.InvokeRequired || l25.InvokeRequired || l50.InvokeRequired || l100.InvokeRequired)
+                    {
+                        Invoke((MethodInvoker)(() => l1.Text = String.Format("  1-cent - {0}", count[1])));
+                        Invoke((MethodInvoker)(() => l2.Text = String.Format("  2-cent - {0}", count[2])));
+                        Invoke((MethodInvoker)(() => l5.Text = String.Format("  5-cent - {0}", count[5])));
+                        Invoke((MethodInvoker)(() => l10.Text = String.Format(" 10-cent - {0}", count[10])));
+                        Invoke((MethodInvoker)(() => l25.Text = String.Format(" 25-cent - {0}", count[25])));
+                        Invoke((MethodInvoker)(() => l50.Text = String.Format(" 50-cent - {0}", count[50])));
+                        Invoke((MethodInvoker)(() => l100.Text = String.Format("100-cent - {0}", count[100])));
+                    }
+                    else
+                    {
+                        l1.Text = String.Format("  1-cent - {0}", count[1]);
+                        l2.Text = String.Format("  2-cent - {0}", count[2]);
+                        l5.Text = String.Format("  5-cent - {0}", count[5]);
+                        l10.Text = String.Format(" 10-cent - {0}", count[10]);
+                        l25.Text = String.Format(" 25-cent - {0}", count[25]);
+                        l50.Text = String.Format(" 50-cent - {0}", count[50]);
+                        l100.Text = String.Format("100-cent - {0}", count[100]);
+                    }
+
+                    if (lWhatToDo.InvokeRequired)
+                    {
+                        Invoke((MethodInvoker)(() => lWhatToDo.Text = text_insert));
+                    }
+                    else
+                    {
+                        lWhatToDo.Text = text_insert;
+                    }
 
                     have_new_coin = false;
                 }
                 // End of critical section
-                
+
                 turn = 0;
                 flag_B = false;
 
-                await Task.Delay(1000);
+                await Task.Delay(time_delay);
             }
         }
 
@@ -136,7 +184,7 @@ namespace T7_Operating_Systems_Lab2
                 turn = 1;
                 flag_A = false;
 
-                await Task.Delay(1000);
+                await Task.Delay(time_delay);
             }
         }
 
@@ -155,6 +203,8 @@ namespace T7_Operating_Systems_Lab2
                 coin_inputed = true;
                 if (coin_inputed && button_pressed)
                     bGo.Enabled = true;
+
+                lWhatToDo.Text = "Select value of coins you want";
             }
             else
             {
@@ -168,8 +218,11 @@ namespace T7_Operating_Systems_Lab2
 
                 coin_inputed = false;
 
-                if (!coin_inputed || !button_pressed)
-                    bGo.Enabled = false;
+                bGo.Enabled = false;
+
+                tbOutput.Text = "";
+                tbWant.Text = "";
+                lWhatToDo.Text = text_insert;
             }
         }
 
@@ -177,7 +230,10 @@ namespace T7_Operating_Systems_Lab2
         {
             button_pressed = true;
             if (coin_inputed && button_pressed)
+            {
                 bGo.Enabled = true;
+            }
+            tbOutput.Text = "";
         }
 
         private void b1_Click(object sender, EventArgs e)
@@ -188,7 +244,25 @@ namespace T7_Operating_Systems_Lab2
 
         private void bGo_Click(object sender, EventArgs e)
         {
-            go = true;
+            string icoin = tbCoin.Text;
+            if (icoin == "1" || icoin == "2" || icoin == "5" || icoin == "10" || icoin == "25" || icoin == "50" || icoin == "100")
+            {
+                go = true;
+
+                b1.Enabled = false;
+                b2.Enabled = false;
+                b5.Enabled = false;
+                b10.Enabled = false;
+                b25.Enabled = false;
+                b50.Enabled = false;
+                b100.Enabled = false;
+                coin_inputed = false;
+
+                bGo.Enabled = false;
+                lWhatToDo.Text = text_insert;
+            }
+            else
+                tbOutput.Text = "Wrong coin inputed";
         }
 
         private void b2_Click(object sender, EventArgs e)
@@ -225,6 +299,29 @@ namespace T7_Operating_Systems_Lab2
         {
             do_button_pressed();
             tbWant.Text = "100";
+        }
+
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            tbWant.Text = "";
+            tbCoin.Text = "";
+            tbOutput.Text = "";
+
+            bGo.Enabled = false;
+            b2.Enabled = false;
+            b5.Enabled = false;
+            b10.Enabled = false;
+            b25.Enabled = false;
+            b50.Enabled = false;
+            b100.Enabled = false;
+
+            coin_inputed = false;
+            lWhatToDo.Text = text_insert;
+        }
+
+        private void tbCoin_Click(object sender, EventArgs e)
+        {
+            tbCoin.Text = "";
         }
     }
 }
