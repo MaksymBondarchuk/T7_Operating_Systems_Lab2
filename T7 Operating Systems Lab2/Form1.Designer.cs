@@ -35,11 +35,12 @@
             this.b10 = new System.Windows.Forms.Button();
             this.b50 = new System.Windows.Forms.Button();
             this.b100 = new System.Windows.Forms.Button();
-            this.tbInput = new System.Windows.Forms.TextBox();
+            this.tbWant = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbOutput = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCoin = new System.Windows.Forms.TextBox();
+            this.bGo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // b1
@@ -52,6 +53,7 @@
             this.b1.TabIndex = 0;
             this.b1.Text = "1";
             this.b1.UseVisualStyleBackColor = true;
+            this.b1.Click += new System.EventHandler(this.b1_Click);
             // 
             // b2
             // 
@@ -63,6 +65,7 @@
             this.b2.TabIndex = 1;
             this.b2.Text = "2";
             this.b2.UseVisualStyleBackColor = true;
+            this.b2.Click += new System.EventHandler(this.b2_Click);
             // 
             // b5
             // 
@@ -74,6 +77,7 @@
             this.b5.TabIndex = 2;
             this.b5.Text = "5";
             this.b5.UseVisualStyleBackColor = true;
+            this.b5.Click += new System.EventHandler(this.b5_Click);
             // 
             // b25
             // 
@@ -85,6 +89,7 @@
             this.b25.TabIndex = 3;
             this.b25.Text = "25";
             this.b25.UseVisualStyleBackColor = true;
+            this.b25.Click += new System.EventHandler(this.b25_Click);
             // 
             // b10
             // 
@@ -96,6 +101,7 @@
             this.b10.TabIndex = 3;
             this.b10.Text = "10";
             this.b10.UseVisualStyleBackColor = true;
+            this.b10.Click += new System.EventHandler(this.b10_Click);
             // 
             // b50
             // 
@@ -107,6 +113,7 @@
             this.b50.TabIndex = 4;
             this.b50.Text = "50";
             this.b50.UseVisualStyleBackColor = true;
+            this.b50.Click += new System.EventHandler(this.b50_Click);
             // 
             // b100
             // 
@@ -118,15 +125,16 @@
             this.b100.TabIndex = 5;
             this.b100.Text = "100";
             this.b100.UseVisualStyleBackColor = true;
+            this.b100.Click += new System.EventHandler(this.b100_Click);
             // 
-            // tbInput
+            // tbWant
             // 
-            this.tbInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbInput.Location = new System.Drawing.Point(43, 71);
-            this.tbInput.Name = "tbInput";
-            this.tbInput.Size = new System.Drawing.Size(140, 29);
-            this.tbInput.TabIndex = 6;
+            this.tbWant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbWant.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbWant.Location = new System.Drawing.Point(43, 71);
+            this.tbWant.Name = "tbWant";
+            this.tbWant.Size = new System.Drawing.Size(140, 29);
+            this.tbWant.TabIndex = 6;
             // 
             // label1
             // 
@@ -134,9 +142,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(39, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 20);
+            this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 7;
-            this.label1.Text = "You gave me";
+            this.label1.Text = "You want to get";
             // 
             // label2
             // 
@@ -157,25 +165,40 @@
             this.tbOutput.Size = new System.Drawing.Size(140, 29);
             this.tbOutput.TabIndex = 8;
             // 
-            // textBox1
+            // tbCoin
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(469, 179);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 44);
-            this.textBox1.TabIndex = 10;
+            this.tbCoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbCoin.Location = new System.Drawing.Point(469, 179);
+            this.tbCoin.Name = "tbCoin";
+            this.tbCoin.Size = new System.Drawing.Size(194, 44);
+            this.tbCoin.TabIndex = 0;
+            this.tbCoin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // bGo
+            // 
+            this.bGo.Enabled = false;
+            this.bGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bGo.Location = new System.Drawing.Point(265, 279);
+            this.bGo.Name = "bGo";
+            this.bGo.Size = new System.Drawing.Size(70, 70);
+            this.bGo.TabIndex = 11;
+            this.bGo.Text = "Go";
+            this.bGo.UseVisualStyleBackColor = true;
+            this.bGo.Click += new System.EventHandler(this.bGo_Click);
             // 
             // Form1
             // 
+            this.AcceptButton = this.bGo;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(794, 396);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bGo);
+            this.Controls.Add(this.tbCoin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbInput);
+            this.Controls.Add(this.tbWant);
             this.Controls.Add(this.b100);
             this.Controls.Add(this.b50);
             this.Controls.Add(this.b10);
@@ -200,11 +223,12 @@
         private System.Windows.Forms.Button b10;
         private System.Windows.Forms.Button b50;
         private System.Windows.Forms.Button b100;
-        private System.Windows.Forms.TextBox tbInput;
+        private System.Windows.Forms.TextBox tbWant;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbOutput;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCoin;
+        private System.Windows.Forms.Button bGo;
     }
 }
 
