@@ -39,10 +39,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbOutput = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // b1
             // 
+            this.b1.Enabled = false;
             this.b1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b1.Location = new System.Drawing.Point(113, 127);
             this.b1.Name = "b1";
@@ -53,6 +55,7 @@
             // 
             // b2
             // 
+            this.b2.Enabled = false;
             this.b2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b2.Location = new System.Drawing.Point(189, 127);
             this.b2.Name = "b2";
@@ -63,6 +66,7 @@
             // 
             // b5
             // 
+            this.b5.Enabled = false;
             this.b5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b5.Location = new System.Drawing.Point(265, 127);
             this.b5.Name = "b5";
@@ -73,6 +77,7 @@
             // 
             // b25
             // 
+            this.b25.Enabled = false;
             this.b25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b25.Location = new System.Drawing.Point(189, 203);
             this.b25.Name = "b25";
@@ -83,6 +88,7 @@
             // 
             // b10
             // 
+            this.b10.Enabled = false;
             this.b10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b10.Location = new System.Drawing.Point(113, 203);
             this.b10.Name = "b10";
@@ -93,6 +99,7 @@
             // 
             // b50
             // 
+            this.b50.Enabled = false;
             this.b50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b50.Location = new System.Drawing.Point(265, 203);
             this.b50.Name = "b50";
@@ -103,6 +110,7 @@
             // 
             // b100
             // 
+            this.b100.Enabled = false;
             this.b100.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b100.Location = new System.Drawing.Point(189, 279);
             this.b100.Name = "b100";
@@ -149,12 +157,21 @@
             this.tbOutput.Size = new System.Drawing.Size(140, 29);
             this.tbOutput.TabIndex = 8;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(469, 179);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(194, 44);
+            this.textBox1.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(455, 396);
+            this.ClientSize = new System.Drawing.Size(794, 396);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbOutput);
             this.Controls.Add(this.label1);
@@ -187,6 +204,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbOutput;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
