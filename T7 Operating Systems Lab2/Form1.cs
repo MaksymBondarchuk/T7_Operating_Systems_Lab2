@@ -47,13 +47,13 @@ namespace T7_Operating_Systems_Lab2
             count[50] = 10;
             count[100] = 10;
 
-            l1.Text = String.Format("  1-cent - {0}", count[1]);
-            l2.Text = String.Format("  2-cent - {0}", count[2]);
-            l5.Text = String.Format("  5-cent - {0}", count[5]);
-            l10.Text = String.Format(" 10-cent - {0}", count[10]);
-            l25.Text = String.Format(" 25-cent - {0}", count[25]);
-            l50.Text = String.Format(" 50-cent - {0}", count[50]);
-            l100.Text = String.Format("100-cent - {0}", count[100]);
+            l1.Text = String.Format("  1¢ - {0}", count[1]);
+            l2.Text = String.Format("  2¢ - {0}", count[2]);
+            l5.Text = String.Format("  5¢ - {0}", count[5]);
+            l10.Text = String.Format(" 10¢ - {0}", count[10]);
+            l25.Text = String.Format(" 25¢ - {0}", count[25]);
+            l50.Text = String.Format(" 50¢ - {0}", count[50]);
+            l100.Text = String.Format("100¢ - {0}", count[100]);
 
 
             Thread TA = new Thread(() => thread_A(this), 1000);
@@ -93,7 +93,7 @@ namespace T7_Operating_Systems_Lab2
                         count[wanted_coins] -= result;
                         count[inputed_coin]++;
 
-                        text = String.Format("{0} {1}-cent coin(s)", result, wanted_coins);
+                        text = String.Format("{0} {1}¢ coin(s)", result, wanted_coins);
                     }
                     else
                     {
@@ -113,23 +113,23 @@ namespace T7_Operating_Systems_Lab2
 
                     if (l1.InvokeRequired || l2.InvokeRequired || l5.InvokeRequired || l10.InvokeRequired || l25.InvokeRequired || l50.InvokeRequired || l100.InvokeRequired)
                     {
-                        Invoke((MethodInvoker)(() => l1.Text = String.Format("  1-cent - {0}", count[1])));
-                        Invoke((MethodInvoker)(() => l2.Text = String.Format("  2-cent - {0}", count[2])));
-                        Invoke((MethodInvoker)(() => l5.Text = String.Format("  5-cent - {0}", count[5])));
-                        Invoke((MethodInvoker)(() => l10.Text = String.Format(" 10-cent - {0}", count[10])));
-                        Invoke((MethodInvoker)(() => l25.Text = String.Format(" 25-cent - {0}", count[25])));
-                        Invoke((MethodInvoker)(() => l50.Text = String.Format(" 50-cent - {0}", count[50])));
-                        Invoke((MethodInvoker)(() => l100.Text = String.Format("100-cent - {0}", count[100])));
+                        Invoke((MethodInvoker)(() => l1.Text = String.Format("  1¢ - {0}", count[1])));
+                        Invoke((MethodInvoker)(() => l2.Text = String.Format("  2¢ - {0}", count[2])));
+                        Invoke((MethodInvoker)(() => l5.Text = String.Format("  5¢ - {0}", count[5])));
+                        Invoke((MethodInvoker)(() => l10.Text = String.Format(" 10¢ - {0}", count[10])));
+                        Invoke((MethodInvoker)(() => l25.Text = String.Format(" 25¢ - {0}", count[25])));
+                        Invoke((MethodInvoker)(() => l50.Text = String.Format(" 50¢ - {0}", count[50])));
+                        Invoke((MethodInvoker)(() => l100.Text = String.Format("100¢ - {0}", count[100])));
                     }
                     else
                     {
-                        l1.Text = String.Format("  1-cent - {0}", count[1]);
-                        l2.Text = String.Format("  2-cent - {0}", count[2]);
-                        l5.Text = String.Format("  5-cent - {0}", count[5]);
-                        l10.Text = String.Format(" 10-cent - {0}", count[10]);
-                        l25.Text = String.Format(" 25-cent - {0}", count[25]);
-                        l50.Text = String.Format(" 50-cent - {0}", count[50]);
-                        l100.Text = String.Format("100-cent - {0}", count[100]);
+                        l1.Text = String.Format("  1¢ - {0}", count[1]);
+                        l2.Text = String.Format("  2¢ - {0}", count[2]);
+                        l5.Text = String.Format("  5¢ - {0}", count[5]);
+                        l10.Text = String.Format(" 10¢ - {0}", count[10]);
+                        l25.Text = String.Format(" 25¢ - {0}", count[25]);
+                        l50.Text = String.Format(" 50¢ - {0}", count[50]);
+                        l100.Text = String.Format("100¢ - {0}", count[100]);
                     }
 
                     if (lWhatToDo.InvokeRequired)
